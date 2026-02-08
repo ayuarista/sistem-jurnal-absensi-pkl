@@ -7,6 +7,9 @@ use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\ChartController;
 use App\Http\Controllers\ComponentspageController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\GuruController;
+use App\Http\Controllers\OperatorController;
 use App\Http\Controllers\FormsController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\SettingsController;
@@ -18,35 +21,79 @@ Route::controller(DashboardController::class)->group(function () {
     Route::get('/', 'index')->name('index');
 });
 
-Route::controller(HomeController::class)->group(function () {
-    Route::get('calendar-Main','calendarMain')->name('calendarMain');
-    Route::get('chatempty','chatempty')->name('chatempty');
-    Route::get('chat-message','chatMessage')->name('chatMessage');
-    Route::get('chat-profile','chatProfile')->name('chatProfile');
-    Route::get('email','email')->name('email');
-    Route::get('faq','faq')->name('faq');
-    Route::get('gallery','gallery')->name('gallery');
-    Route::get('image-upload','imageUpload')->name('imageUpload');
-    Route::get('kanban','kanban')->name('kanban');
-    Route::get('page-error','pageError')->name('pageError');
-    Route::get('pricing','pricing')->name('pricing');
-    Route::get('starred','starred')->name('starred');
-    Route::get('terms-condition','termsCondition')->name('termsCondition');
-    Route::get('veiw-details','veiwDetails')->name('veiwDetails');
-    Route::get('widgets','widgets')->name('widgets');
-
+// Siswa Routes
+Route::prefix('siswa')->group(function () {
+    Route::controller(SiswaController::class)->group(function () {
+        Route::get('/', 'index')->name('siswa.index');
+        Route::get('/index-2', 'index2')->name('siswa.index2');
+        Route::get('/index-3', 'index3')->name('siswa.index3');
+        Route::get('/index-4', 'index4')->name('siswa.index4');
+        Route::get('/index-5', 'index5')->name('siswa.index5');
+        Route::get('/index-6', 'index6')->name('siswa.index6');
+        Route::get('/index-7', 'index7')->name('siswa.index7');
+        Route::get('/index-8', 'index8')->name('siswa.index8');
+        Route::get('/index-9', 'index9')->name('siswa.index9');
     });
+});
 
-    // aiApplication
+// Guru Routes
+Route::prefix('guru')->group(function () {
+    Route::controller(GuruController::class)->group(function () {
+        Route::get('/', 'index')->name('guru.index');
+        Route::get('/index-2', 'index2')->name('guru.index2');
+        Route::get('/index-3', 'index3')->name('guru.index3');
+        Route::get('/index-4', 'index4')->name('guru.index4');
+        Route::get('/index-5', 'index5')->name('guru.index5');
+        Route::get('/index-6', 'index6')->name('guru.index6');
+        Route::get('/index-7', 'index7')->name('guru.index7');
+        Route::get('/index-8', 'index8')->name('guru.index8');
+        Route::get('/index-9', 'index9')->name('guru.index9');
+    });
+});
+
+// Operator Routes
+Route::prefix('operator')->group(function () {
+    Route::controller(OperatorController::class)->group(function () {
+        Route::get('/', 'index')->name('operator.index');
+        Route::get('/index-2', 'index2')->name('operator.index2');
+        Route::get('/index-3', 'index3')->name('operator.index3');
+        Route::get('/index-4', 'index4')->name('operator.index4');
+        Route::get('/index-5', 'index5')->name('operator.index5');
+        Route::get('/index-6', 'index6')->name('operator.index6');
+        Route::get('/index-7', 'index7')->name('operator.index7');
+        Route::get('/index-8', 'index8')->name('operator.index8');
+        Route::get('/index-9', 'index9')->name('operator.index9');
+    });
+});
+
+Route::controller(HomeController::class)->group(function () {
+    Route::get('calendar-Main', 'calendarMain')->name('calendarMain');
+    Route::get('chatempty', 'chatempty')->name('chatempty');
+    Route::get('chat-message', 'chatMessage')->name('chatMessage');
+    Route::get('chat-profile', 'chatProfile')->name('chatProfile');
+    Route::get('email', 'email')->name('email');
+    Route::get('faq', 'faq')->name('faq');
+    Route::get('gallery', 'gallery')->name('gallery');
+    Route::get('image-upload', 'imageUpload')->name('imageUpload');
+    Route::get('kanban', 'kanban')->name('kanban');
+    Route::get('page-error', 'pageError')->name('pageError');
+    Route::get('pricing', 'pricing')->name('pricing');
+    Route::get('starred', 'starred')->name('starred');
+    Route::get('terms-condition', 'termsCondition')->name('termsCondition');
+    Route::get('veiw-details', 'veiwDetails')->name('veiwDetails');
+    Route::get('widgets', 'widgets')->name('widgets');
+});
+
+// aiApplication
 Route::prefix('aiapplication')->group(function () {
     Route::controller(AiapplicationController::class)->group(function () {
         Route::get('/code-generator', 'codeGenerator')->name('codeGenerator');
         Route::get('/code-generatornew', 'codeGeneratorNew')->name('codeGeneratorNew');
-        Route::get('/image-generator','imageGenerator')->name('imageGenerator');
-        Route::get('/text-generator','textGenerator')->name('textGenerator');
-        Route::get('/text-generatornew','textGeneratorNew')->name('textGeneratorNew');
-        Route::get('/video-generator','videoGenerator')->name('videoGenerator');
-        Route::get('/voice-generator','voiceGenerator')->name('voiceGenerator');
+        Route::get('/image-generator', 'imageGenerator')->name('imageGenerator');
+        Route::get('/text-generator', 'textGenerator')->name('textGenerator');
+        Route::get('/text-generatornew', 'textGeneratorNew')->name('textGeneratorNew');
+        Route::get('/video-generator', 'videoGenerator')->name('videoGenerator');
+        Route::get('/voice-generator', 'voiceGenerator')->name('voiceGenerator');
     });
 });
 
@@ -98,7 +145,7 @@ Route::prefix('componentspage')->group(function () {
 // Dashboard
 Route::prefix('cryptocurrency')->group(function () {
     Route::controller(CryptocurrencyController::class)->group(function () {
-        Route::get('/wallet','wallet')->name('wallet');
+        Route::get('/wallet', 'wallet')->name('wallet');
     });
 });
 
@@ -109,11 +156,11 @@ Route::prefix('dashboard')->group(function () {
         Route::get('/index-2', 'index2')->name('index2');
         Route::get('/index-3', 'index3')->name('index3');
         Route::get('/index-4', 'index4')->name('index4');
-        Route::get('/index-5','index5')->name('index5');
-        Route::get('/index-6','index6')->name('index6');
-        Route::get('/index-7','index7')->name('index7');
-        Route::get('/index-8','index8')->name('index8');
-        Route::get('/index-9','index9')->name('index9');
+        Route::get('/index-5', 'index5')->name('index5');
+        Route::get('/index-6', 'index6')->name('index6');
+        Route::get('/index-7', 'index7')->name('index7');
+        Route::get('/index-8', 'index8')->name('index8');
+        Route::get('/index-9', 'index9')->name('index9');
     });
 });
 

@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class DashboardController extends Controller
+class SiswaController extends Controller
 {
-
     public function index()
     {
         return view('siswa.index');
@@ -50,20 +49,5 @@ class DashboardController extends Controller
     public function index9()
     {
         return view('siswa.index9');
-    }
-
-    public function siswa()
-    {
-        return view('siswa.index');
-    }
-
-    public function guru()
-    {
-        return view('guru_pembimbing.index');
-    }
-
-    public function operator()
-    {
-        return view('guru_operator.index');
     }
 }
